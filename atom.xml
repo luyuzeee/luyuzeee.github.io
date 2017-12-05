@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>陆刚的博客</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://luyuzeee.github.io/"/>
+  <updated>2017-12-05T03:12:33.564Z</updated>
+  <id>https://luyuzeee.github.io/</id>
+  
+  <author>
+    <name>Danile</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>placeholder兼容问题</title>
+    <link href="https://luyuzeee.github.io/2017/07/13/placeholder%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98/"/>
+    <id>https://luyuzeee.github.io/2017/07/13/placeholder兼容问题/</id>
+    <published>2017-07-13T12:46:25.000Z</published>
+    <updated>2017-12-05T03:12:33.564Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="以下是angularJs的兼容，运用指令和IE兼容"><a href="#以下是angularJs的兼容，运用指令和IE兼容" class="headerlink" title="以下是angularJs的兼容，运用指令和IE兼容"></a>以下是angularJs的兼容，运用指令和IE兼容</h2><p><pre><br><code><br>starterDirective.directive(‘placeholder’, [‘$compile’, function($compile) {<br>    return {<br>        restrict: ‘A’,<br>        scope: {},<br>        link: function(scope, ele, attr) {<br>            console.log(ele.position().top);<br>            var input = document.createElement(‘input’);<br>            var isSupportPlaceholder = ‘placeholder’ in input;<br>            if(!isSupportPlaceholder) {<br>                var fakePlaceholder = angular.element(<br>                    ‘<b class="plcaeholder">‘ + attr[‘placeholder’] + ‘</b>‘);<br>                fakePlaceholder.on(‘click’, function(e) {<br>                    e.stopPropagation();<br>                    ele.focus();<br>                });<br>                fakePlaceholder.css({<br>                    ‘text-align’: ‘left’,<br>                    ‘line-height’: ‘34px’<br>                });<br>                scope.getElementPosition = function() {<br>                    return ele.position();<br>                };<br>                scope.$watch(scope.getElementPosition, function() {<br>                    fakePlaceholder.css({<br>                        ‘top’: ele.position().top + ‘px’,<br>                        ‘left’: ele.position().left + ‘px’<br>                    });<br>                }, true);<br>                scope.getElementHeight = function() {<br>                    return ele.outerHeight();<br>                };<br>                scope.$watch(scope.getElementHeight, function() {<br>                    fakePlaceholder.css(‘height’, ele.outerHeight() + ‘px’);<br>                });<br>                if(ele.css(‘font-size’)) {<br>                    fakePlaceholder.css(‘font-size’, ele.css(‘font-size’));<br>                }<br>                if(ele.css(‘width’)) {<br>                    fakePlaceholder.css(‘width’, ele.css(‘width’));<br>                }<br>                if(ele.css(‘text-indent’)) {<br>                    fakePlaceholder.css(‘text-indent’,<br>                        parseInt(ele.css(‘text-indent’)) +<br>                        parseInt(ele.css(‘border-left-width’))<br>                    );<br>                }<br>                if(ele.css(‘padding-left’)) {<br>                    fakePlaceholder.css(‘padding-left’, ele.css(‘padding-left’));<br>                }<br>                if(ele.css(‘margin-top’)) {<br>                    fakePlaceholder.css(‘margin-top’, ele.css(‘margin-top’));<br>                }<br>                ele.before(fakePlaceholder);<br>                $compile(fakePlaceholder)(scope);<br>                ele.on(‘focus’, function() {<br>                    fakePlaceholder.hide();<br>                }).on(‘blur’, function() {<br>                    if(ele.val() === ‘’) {<br>                        fakePlaceholder.show();<br>                    }<br>                });<br>                scope.isElementVisible = function() {<br>                    return ele.is(‘:visible’);<br>                };<br>                scope.$watch(scope.isElementVisible, function() {<br>                    var displayVal = ele.is(‘:visible’) ? ‘block’ : ‘none’;<br>                    fakePlaceholder.css(‘display’, displayVal);<br>                    if(displayVal === ‘blcok’ &amp;&amp; ele.val()) {<br>                        fakePlaceholder.hide();<br>                    }<br>                });<br>                scope.hasValue = function() {<br>                    return ele.val();<br>                };<br>                scope.$watch(scope.hasValue, function() {<br>                    if(ele.val()) {<br>                        fakePlaceholder.hide();<br>                    }<br>                });<br>            }<br>        }<br>    };<br>}]);<br></code><br></pre></p><p><pre><br><code><br>&lt;!–[if lte IE 9]&gt;<br>            &lt;script&gt;<br>                $(function(){<br>                        /<em>placeholder兼容</em>/<br>                    $(‘[placeholder]’).each(function(){<br>                        var defaultvalue=$(this).attr(“placeholder”);<br>                        var altercss=$(this).attr(“altercss”);<br>                        if($.trim($(this).val())===’’){<br>                            $(this).val(defaultvalue);<br>                            if(altercss){$(this).addClass(altercss);}<br>                        }<br>                        $(this).focus(function(){<br>                            if($(this).val()==defaultvalue){<br>                                $(this).val(‘’);<br>                                if(altercss){$(this).removeClass(altercss);}<br>                            }<br>                        }).blur(function(){<br>                            if($.trim($(this).val())===’’){<br>                                $(this).val(defaultvalue);<br>                                if(altercss){$(this).addClass(altercss);}<br>                            }<br>                        });<br>                    });<br>                });<br>            &lt;/script&gt;<br>        &lt;![endif]–&gt;<br></code><br></pre></p><p>以上有自己工作总结，欢迎广大群众提意见。真诚向您学习！！！！！！<br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;以下是angularJs的兼容，运用指令和IE兼容&quot;&gt;&lt;a href=&quot;#以下是angularJs的兼容，运用指令和IE兼容&quot; class=&quot;headerlink&quot; title=&quot;以下是angularJs的兼容，运用指令和IE兼容&quot;&gt;&lt;/a&gt;以下是angularJ
+      
+    
+    </summary>
+    
+      <category term="兼容，placeholder" scheme="https://luyuzeee.github.io/categories/%E5%85%BC%E5%AE%B9%EF%BC%8Cplaceholder/"/>
+    
+    
+      <category term="兼容，placeholder，angularJs，IE" scheme="https://luyuzeee.github.io/tags/%E5%85%BC%E5%AE%B9%EF%BC%8Cplaceholder%EF%BC%8CangularJs%EF%BC%8CIE/"/>
+    
+  </entry>
+  
+</feed>
