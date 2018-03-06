@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>gulp安装 | 陆刚的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="gulp，压缩，优化，插件，API">
+    <meta name="description" content="以下是gulp的安装1，gulp的官网地址gulp官网地址：http://www.gulpjs.com.cn/gulp中文文档：http://www.gulpjs.com.cn/docs/gulp插件地址：http://gulpjs.com/pluginsgulpAPI地址：http://www.gulpjs.com.">
+<meta name="keywords" content="gulp，压缩，优化，插件，API">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp安装">
+<meta property="og:url" content="https://luyuzeee.github.io/2017/09/12/gulp搭建/index.html">
+<meta property="og:site_name" content="陆刚的博客">
+<meta property="og:description" content="以下是gulp的安装1，gulp的官网地址gulp官网地址：http://www.gulpjs.com.cn/gulp中文文档：http://www.gulpjs.com.cn/docs/gulp插件地址：http://gulpjs.com/pluginsgulpAPI地址：http://www.gulpjs.com.cn/docs/api/ 2，nodenode下载地址：http://nodej">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://luyuzeee.github.io/2017/09/12/gulp搭建/20160403162526733.png">
+<meta property="og:updated_time" content="2018-03-06T10:54:33.387Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gulp安装">
+<meta name="twitter:description" content="以下是gulp的安装1，gulp的官网地址gulp官网地址：http://www.gulpjs.com.cn/gulp中文文档：http://www.gulpjs.com.cn/docs/gulp插件地址：http://gulpjs.com/pluginsgulpAPI地址：http://www.gulpjs.com.cn/docs/api/ 2，nodenode下载地址：http://nodej">
+<meta name="twitter:image" content="https://luyuzeee.github.io/2017/09/12/gulp搭建/20160403162526733.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="陆刚的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/headMY.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Danile</h5>
+          <a href="mailto:604616579@qq.com" title="604616579@qq.com" class="mail">604616579@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/luyuzeee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">gulp安装</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">gulp安装</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-12T12:46:25.000Z" itemprop="datePublished" class="page-time">
+  2017-09-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/gulp，压缩，优化，插件，API/">gulp，压缩，优化，插件，API</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#以下是gulp的安装"><span class="post-toc-number">1.</span> <span class="post-toc-text">以下是gulp的安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1，gulp的官网地址"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">1，gulp的官网地址</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2，node"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">2，node</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3，npm和cnpm"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">3，npm和cnpm</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4，全局安装gulp"><span class="post-toc-number">1.0.4.</span> <span class="post-toc-text">4，全局安装gulp</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5，新建package-json"><span class="post-toc-number">1.0.5.</span> <span class="post-toc-text">5，新建package.json</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5，本地安装gulp插件"><span class="post-toc-number">1.0.6.</span> <span class="post-toc-text">5，本地安装gulp插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#安装gulp插件（已gulp-sass为例）"><span class="post-toc-number">1.0.6.1.</span> <span class="post-toc-text">安装gulp插件（已gulp-sass为例）</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6，新建gulpfile-js（重要，重要，重要）"><span class="post-toc-number">1.0.7.</span> <span class="post-toc-text">6，新建gulpfile.js（重要，重要，重要）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7，任务文件匹配"><span class="post-toc-number">1.0.8.</span> <span class="post-toc-text">7，任务文件匹配</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#使用数组的方式来匹配多种文件"><span class="post-toc-number">1.0.8.1.</span> <span class="post-toc-text">//使用数组的方式来匹配多种文件</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写在最后"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">写在最后</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTML-，-js-css-压缩（其他插件请参考参见文档-https-gulpjs-com-plugins-）"><span class="post-toc-number">1.1.0.1.</span> <span class="post-toc-text">HTML ， js , css 压缩（其他插件请参考参见文档 https://gulpjs.com/plugins/）</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8，运行"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">8，运行</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-gulp搭建"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">gulp安装</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-12 20:46:25" datetime="2017-09-12T12:46:25.000Z"  itemprop="datePublished">2017-09-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/gulp，压缩，优化，插件，API/">gulp，压缩，优化，插件，API</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="以下是gulp的安装"><a href="#以下是gulp的安装" class="headerlink" title="以下是gulp的安装"></a>以下是gulp的安装</h2><h4 id="1，gulp的官网地址"><a href="#1，gulp的官网地址" class="headerlink" title="1，gulp的官网地址"></a>1，gulp的官网地址</h4><p>gulp官网地址：<a href="http://www.gulpjs.com.cn/" target="_blank" rel="noopener">http://www.gulpjs.com.cn/</a><br>gulp中文文档：<a href="http://www.gulpjs.com.cn/docs/" target="_blank" rel="noopener">http://www.gulpjs.com.cn/docs/</a><br>gulp插件地址：<a href="http://gulpjs.com/plugins" target="_blank" rel="noopener">http://gulpjs.com/plugins</a><br>gulpAPI地址：<a href="http://www.gulpjs.com.cn/docs/api/" target="_blank" rel="noopener">http://www.gulpjs.com.cn/docs/api/</a></p>
+<h4 id="2，node"><a href="#2，node" class="headerlink" title="2，node"></a>2，node</h4><p>node下载地址：<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">http://nodejs.cn/download/</a> </p>
+<h4 id="3，npm和cnpm"><a href="#3，npm和cnpm" class="headerlink" title="3，npm和cnpm"></a>3，npm和cnpm</h4><p>npm服务器在国外，网络影响大，甚至还会遇到需要翻墙才能下载插件的情况，因此推荐安装cnpm。<br>【淘宝npm镜像，这是一个完整 npmjs.org 镜像，你可以用此代替官方版本(只读)，同步频率目前为 10分钟 一次以保证尽量与官方服务同步】。<br>镜像地址：<a href="http://npm.taobao.org/" target="_blank" rel="noopener">http://npm.taobao.org/</a></p>
+<h4 id="4，全局安装gulp"><a href="#4，全局安装gulp" class="headerlink" title="4，全局安装gulp"></a>4，全局安装gulp</h4><p>执行cnpm install gulp -g</p>
+<h4 id="5，新建package-json"><a href="#5，新建package-json" class="headerlink" title="5，新建package.json"></a>5，新建package.json</h4><p>执行命令cnpm init (也可以手动在项目根目录上创建)<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/09/12/gulp搭建/20160403162526733.png" alt="创建步骤" title="">
+                </div>
+                <div class="image-caption">创建步骤</div>
+            </figure><br>创建成功后</p>
+<p><pre><br><code><br>{<br>  “name”: “test”,<br>  “version”: “1.0.0”,<br>  “description”: “我是描述”,<br>  “main”: “index.js”,<br>  “scripts”: {<br>    “test”: “echo \”Error: no test specified\” &amp;&amp; exit 1”<br>  },<br>  “author”: “”,<br>  “license”: “ISC”<br>}<br></code><br></pre></p>
+<h4 id="5，本地安装gulp插件"><a href="#5，本地安装gulp插件" class="headerlink" title="5，本地安装gulp插件"></a>5，本地安装gulp插件</h4><p>注：全局安装gulp是为了执行gulp任务，本地安装gulp则是为了调用gulp插件的功能<br>进入你的项目文件路径中后，执行cnpm install gulp –save-dev </p>
+<p>此步骤完成后：项目文件中多了 node_modules 文件夹，里面是你本地安装的插件</p>
+<h5 id="安装gulp插件（已gulp-sass为例）"><a href="#安装gulp插件（已gulp-sass为例）" class="headerlink" title="安装gulp插件（已gulp-sass为例）"></a>安装gulp插件（已gulp-sass为例）</h5><p>进入你的项目文件路径中后，执行cnpm install gulp-sass –save-dev</p>
+<p>常用插件<br>1，sass的编译（gulp-sass）<br>2，less编译 （gulp-less）<br>3，重命名（gulp-rename）<br>4，图片转换为base64-encoded （gulp-img64）<br>5，自动添加css前缀（gulp-autoprefixer）<br>6，压缩css（gulp-clean-css）<br>7，js代码校验（gulp-jshint）<br>8，合并js文件（gulp-concat）<br>9，压缩js代码（gulp-uglify）<br>10，压缩图片（gulp-imagemin）<br>11，自动刷新页面（gulp-livereload，谷歌浏览器亲测，谷歌浏览器需安装livereload插件）<br>12，图片缓存，只有图片替换了才压缩（gulp-cache）<br>13，更改提醒（gulp-notify）<br>14，阻止 gulp 插件发生错误导致进程退出并输出错误日志(gulp-plumber)</p>
+<h4 id="6，新建gulpfile-js（重要，重要，重要）"><a href="#6，新建gulpfile-js（重要，重要，重要）" class="headerlink" title="6，新建gulpfile.js（重要，重要，重要）"></a>6，新建gulpfile.js（重要，重要，重要）</h4><p>gulpfile.js是gulp的配置文件，放于根目录中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//gulpfile.js 示例文件</span><br><span class="line">//导入你所需要用的工具包 require(&apos;node_modules里对应模块&apos;)</span><br><span class="line">var gulp = require(&apos;gulp&apos;),</span><br><span class="line">    sass = require(&apos;gulp-sass&apos;);</span><br><span class="line">// scss 任务</span><br><span class="line">gulp.task(&apos;sass&apos;,function()&#123;</span><br><span class="line">  return gulp.src(&apos;src/css/test.scss&apos;) //获取该任务需要的文件</span><br><span class="line">      .pipe( sass() )                  //该任务调用的模块</span><br><span class="line">      .pipe( gulp.dest(&apos;src/css&apos;) );   //将在 src/css 文件夹中生产test.css</span><br><span class="line">&#125;);</span><br><span class="line">// 默认任务</span><br><span class="line">gulp.task(&apos;default&apos;,[&apos;sass&apos;,&apos;watch1&apos;]);</span><br><span class="line">//监听文件</span><br><span class="line">gulp.task(&apos;watch1&apos;,function()&#123;</span><br><span class="line">    return gulp.watch(&apos;src/css/test.scss&apos;,[&apos;sass&apos;]);</span><br><span class="line">    //监听 src/css/test.scss 文件，修改时自动执行 sass 任务。</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>详细gulp api介绍，可参考官网：<a href="http://www.gulpjs.com.cn/docs/api/" target="_blank" rel="noopener">http://www.gulpjs.com.cn/docs/api/</a></p>
+<h4 id="7，任务文件匹配"><a href="#7，任务文件匹配" class="headerlink" title="7，任务文件匹配"></a>7，任务文件匹配</h4><h5 id="使用数组的方式来匹配多种文件"><a href="#使用数组的方式来匹配多种文件" class="headerlink" title="//使用数组的方式来匹配多种文件"></a>//使用数组的方式来匹配多种文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.src([&apos;js/*.js&apos;,&apos;css/*.css&apos;,&apos;*.html&apos;])</span><br><span class="line">//以下是匹配一个文件夹下多个html</span><br><span class="line">gulp.src(&apos;./src/html/**/*.html&apos;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gulp.src([*.js,&apos;!b*.js&apos;]) //匹配所有js文件，但排除掉以b开头的js文件</span><br><span class="line">gulp.src([&apos;!b*.js&apos;,*.js]) //不会排除任何文件，因为排除模式不能出现在数组的第一个元素中</span><br></pre></td></tr></table></figure>
+<p>使用数组的方式还有一个好处就是可以很方便的使用排除模式，在数组中的单个匹配模式前加上!即是排除模式，它会在匹配的结果中排除这个匹配，要注意一点的是不能在数组中的第一个元素中使用排除模式</p>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><h5 id="HTML-，-js-css-压缩（其他插件请参考参见文档-https-gulpjs-com-plugins-）"><a href="#HTML-，-js-css-压缩（其他插件请参考参见文档-https-gulpjs-com-plugins-）" class="headerlink" title="HTML ， js , css 压缩（其他插件请参考参见文档 https://gulpjs.com/plugins/）"></a>HTML ， js , css 压缩（其他插件请参考参见文档 <a href="https://gulpjs.com/plugins/）" target="_blank" rel="noopener">https://gulpjs.com/plugins/）</a></h5><p>以下是一个简单的HTML ， js , css 压缩gulpfile.js文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">/*gulpfile.js 示例文件*/</span><br><span class="line">//导入你所需要用的工具包 require(&apos;node_modules里对应模块&apos;)</span><br><span class="line">var gulp = require(&apos;gulp&apos;),</span><br><span class="line">    sass = require(&apos;gulp-sass&apos;);</span><br><span class="line">// 获取 clean-css 模块（用于压缩 css）</span><br><span class="line">var cleanCSS = require(&apos;gulp-clean-css&apos;);</span><br><span class="line">// 获取 uglify 模块（用于压缩 JS）</span><br><span class="line">var uglify = require(&apos;gulp-uglify&apos;);</span><br><span class="line">// 获取 rename 模块（用于重命名）</span><br><span class="line">var rename = require(&quot;gulp-rename&quot;);</span><br><span class="line">// 获取 htmlmin 模块（用于压缩html）</span><br><span class="line">var htmlmin = require(&apos;gulp-htmlmin&apos;);</span><br><span class="line">// scss 任务</span><br><span class="line">gulp.task(&apos;sass&apos;,function()&#123;</span><br><span class="line">  return gulp.src(&apos;./src/css/**/*.scss&apos;) //获取该任务需要的文件</span><br><span class="line">      .pipe( sass() )                  //该任务调用的模块</span><br><span class="line">      .pipe( gulp.dest(&apos;./src/css&apos;) );   //将在 src/css 文件夹中生产test.css</span><br><span class="line">&#125;);</span><br><span class="line">// 压缩 css 文件</span><br><span class="line">// 在命令行使用 gulp csscompress 启动此任务</span><br><span class="line">gulp.task(&apos;csscompress&apos;, function() &#123;</span><br><span class="line">    	// 1. 找到文件</span><br><span class="line">   return gulp.src(&apos;./src/css/**/*.css&apos;)</span><br><span class="line">        .pipe(rename(&#123;suffix: &apos;.min&apos;&#125;))</span><br><span class="line">    	// 2. 压缩文件</span><br><span class="line">        .pipe(cleanCSS())</span><br><span class="line">        // 3. 另存压缩后的文件</span><br><span class="line">        .pipe(gulp.dest(&apos;./src/dist/css&apos;));</span><br><span class="line">&#125;);</span><br><span class="line">// 压缩 js 文件</span><br><span class="line">// 在命令行使用 gulp jscompress 启动此任务</span><br><span class="line">gulp.task(&apos;jscompress&apos;, function() &#123;</span><br><span class="line">   		 // 1. 找到文件</span><br><span class="line">   return gulp.src(&apos;./src/js/**/*.js&apos;)</span><br><span class="line">   		.pipe(rename(&#123;suffix: &apos;.min&apos;&#125;))</span><br><span class="line">    	// 2. 压缩文件</span><br><span class="line">        .pipe(uglify())</span><br><span class="line">        // 3. 另存压缩后的文件</span><br><span class="line">        .pipe(gulp.dest(&apos;./src/dist/js&apos;));</span><br><span class="line">&#125;);</span><br><span class="line">//压缩HTML</span><br><span class="line">gulp.task(&apos;minify&apos;, function() &#123;</span><br><span class="line">  return gulp.src(&apos;./src/html/**/*.html&apos;)</span><br><span class="line">    .pipe(htmlmin(&#123;</span><br><span class="line">    	removeComments: true,//清除HTML注释</span><br><span class="line">	    collapseWhitespace: true,//压缩HTML</span><br><span class="line">	    collapseBooleanAttributes: true,//省略布尔属性的值 &lt;input checked=&quot;true&quot;/&gt; ==&gt; &lt;input /&gt;</span><br><span class="line">	    removeEmptyAttributes: true,//删除所有空格作属性值 &lt;input id=&quot;&quot; /&gt; ==&gt; &lt;input /&gt;</span><br><span class="line">	    removeScriptTypeAttributes: true,//删除&lt;script&gt;的type=&quot;text/javascript&quot;</span><br><span class="line">	    removeStyleLinkTypeAttributes: true,//删除&lt;style&gt;和&lt;link&gt;的type=&quot;text/css&quot;</span><br><span class="line">	    minifyJS: true,//压缩页面JS</span><br><span class="line">    	minifyCSS: true//压缩页面CSS</span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(gulp.dest(&apos;./src/dist/html&apos;));</span><br><span class="line">&#125;);</span><br><span class="line">// 默认任务</span><br><span class="line">gulp.task(&apos;default&apos;,[&apos;auto&apos;]);</span><br><span class="line">//监听文件</span><br><span class="line">gulp.task(&apos;auto&apos;,function()&#123;</span><br><span class="line">   	gulp.watch(&apos;./src/css/**/*.scss&apos;,[&apos;sass&apos;]); //编译sass</span><br><span class="line">   	gulp.watch(&apos;./src/css/**/*.css&apos;,[&apos;csscompress&apos;]);//压缩css</span><br><span class="line">    gulp.watch(&apos;./src/js/**/*.js&apos;,[&apos;jscompress&apos;]);//压缩js</span><br><span class="line">    gulp.watch(&apos;./src/html/**/*.html&apos;,[&apos;minify&apos;]);//压缩html</span><br><span class="line">    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="8，运行"><a href="#8，运行" class="headerlink" title="8，运行"></a>8，运行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp</span><br><span class="line"></span><br><span class="line">gulp xxxxx       (xxxxx代表gulpfile.js文件里的任务名称)</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-03-06T10:54:33.387Z" itemprop="dateUpdated">2018-03-06 18:54:33</time>
+</span><br>
+
+
+        
+        希望能帮到您
+        
+    </div>
+    <footer>
+        <a href="https://luyuzeee.github.io">
+            <img src="/img/headMY.jpg" alt="Danile">
+            Danile
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp，压缩，优化，插件，API/">gulp，压缩，优化，插件，API</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://luyuzeee.github.io/2017/09/12/gulp搭建/&title=《gulp安装》 — 陆刚的博客&pic=https://luyuzeee.github.io/img/headMY.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://luyuzeee.github.io/2017/09/12/gulp搭建/&title=《gulp安装》 — 陆刚的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://luyuzeee.github.io/2017/09/12/gulp搭建/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《gulp安装》 — 陆刚的博客&url=https://luyuzeee.github.io/2017/09/12/gulp搭建/&via=https://luyuzeee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://luyuzeee.github.io/2017/09/12/gulp搭建/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/07/13/placeholder兼容问题/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">placeholder兼容问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        如果您是土豪，我将万分感谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wx.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wx.png" data-alipay="/img/ali.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Danile &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://luyuzeee.github.io/2017/09/12/gulp搭建/&title=《gulp安装》 — 陆刚的博客&pic=https://luyuzeee.github.io/img/headMY.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://luyuzeee.github.io/2017/09/12/gulp搭建/&title=《gulp安装》 — 陆刚的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://luyuzeee.github.io/2017/09/12/gulp搭建/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《gulp安装》 — 陆刚的博客&url=https://luyuzeee.github.io/2017/09/12/gulp搭建/&via=https://luyuzeee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://luyuzeee.github.io/2017/09/12/gulp搭建/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aS3LCMBAFwNz/0uQABOc9jZMqS60VBcaovRjmo6+veL3e1qdrPl3//q3396/vf8PCwMB4LON1ufIfSL51Tcofxw87wcDAOICRBND2mlew5r+LgYGB0b7OwysGBgbGXwfcPHFMSlkMDAyMhJEUsZOCM9ncP9XiGBgYD2TkXff/f/0n8w0MDIxHMV7lmhS9dwXZH3aFgYGxNSMPcHkhunZNm/ZhYGCcw0iCaX7TvPU/eQTFKQ8MDIwtGHlIbRlJwpc80DrdxMDA2JSxlvbNB5aTUIuBgXEOY62V1iaR1227taYeBgbGaYz5kYs2vZs8gl/OtWFgYGzHaDeUNL8mn47uhoGBsTUjD75RTVyG4DzdLLqGGBgYGzEmza/24Fd7h+u/gY//GBgYGNsx2jFkspW1EcLNhy0wMDA2YiQt+7sGA20CWhyBxcDA2JqRt/uTWJe8s7bp+h8DAwPjAEbbJsu32yaOxagAAwNja0Z+uCEJpnlozq+pW3sYGBjbMSZp2VpRWqd9SSKLgYFxDGN+jHVt0zcce8XAwDiM0Tb383liEprb+hQDA2Nvxqtc+VGMeclaBHoMDIytGW3peFegbJtri71DDAyMjRiTwxBReRmXr23Irp80BgbGwxlt4ZozJqnnaL6BgYFxMCPPN5Ngev3rReGKgYGBUY4514YKa+kjBgbGOYzJ0dVJOdqGdQwMjDMZd4W8fOg4SQpHg0wMDIznMb4Bl1/k83uxVUgAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'Fast play slow living！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'Danile Blogs!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
