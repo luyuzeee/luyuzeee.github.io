@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>vue-cli3学习之-axios封装 | 陆刚的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="vue-cli3，axios，封装">
+    <meta name="description" content="vue-cli3学习之-axios封装1，准备地址 baseUrl根据生产与开发环境来改变不同的地址,新建env.js。此处的 ‘/api’ 是在vue.config.js里配置的地址（参考vue-cli3学习之-vue.config.js配置）   let baseUrl = &apos;&apos;; if (pr">
+<meta name="keywords" content="vue-cli3，axios，封装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-cli3学习之-axios封装">
+<meta property="og:url" content="https://luyuzeee.github.io/2019/05/13/vue-cli3学习之-axios封装/index.html">
+<meta property="og:site_name" content="陆刚的博客">
+<meta property="og:description" content="vue-cli3学习之-axios封装1，准备地址 baseUrl根据生产与开发环境来改变不同的地址,新建env.js。此处的 ‘/api’ 是在vue.config.js里配置的地址（参考vue-cli3学习之-vue.config.js配置）   let baseUrl = &apos;&apos;; if (process.env.NODE_ENV == &apos;development&apos;) {     baseUrl">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-13T08:30:35.360Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue-cli3学习之-axios封装">
+<meta name="twitter:description" content="vue-cli3学习之-axios封装1，准备地址 baseUrl根据生产与开发环境来改变不同的地址,新建env.js。此处的 ‘/api’ 是在vue.config.js里配置的地址（参考vue-cli3学习之-vue.config.js配置）   let baseUrl = &apos;&apos;; if (process.env.NODE_ENV == &apos;development&apos;) {     baseUrl">
+    
+        <link rel="alternate" type="application/atom+xml" title="陆刚的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/headMY.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Danile</h5>
+          <a href="mailto:604616579@qq.com" title="604616579@qq.com" class="mail">604616579@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/luyuzeee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/ludashao22" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">vue-cli3学习之-axios封装</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">vue-cli3学习之-axios封装</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-13T07:23:25.000Z" itemprop="datePublished" class="page-time">
+  2019-05-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/vue-cli3，axios，封装/">vue-cli3，axios，封装</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#vue-cli3学习之-axios封装"><span class="post-toc-number">1.</span> <span class="post-toc-text">vue-cli3学习之-axios封装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1，准备地址-baseUrl"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">1，准备地址 baseUrl</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2，axios请求封装"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">2，axios请求封装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-1，这是你需要引入的东西"><span class="post-toc-number">1.0.2.0.1.</span> <span class="post-toc-text">2-1，这是你需要引入的东西</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-2，基本的配置与取值，当然，你也可以把值存在store里，你开心就好"><span class="post-toc-number">1.0.2.0.2.</span> <span class="post-toc-text">2-2，基本的配置与取值，当然，你也可以把值存在store里，你开心就好</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-3，http请求拦截器"><span class="post-toc-number">1.0.2.0.3.</span> <span class="post-toc-text">2-3，http请求拦截器</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-4，http-response-服务器响应拦截器"><span class="post-toc-number">1.0.2.0.4.</span> <span class="post-toc-text">2-4，http response 服务器响应拦截器</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-5，get-post请求简单封装"><span class="post-toc-number">1.0.2.0.5.</span> <span class="post-toc-text">2-5，get,post请求简单封装</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-5，在main-js中引入，就可以用了"><span class="post-toc-number">1.0.2.0.6.</span> <span class="post-toc-text">2-5，在main.js中引入，就可以用了</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#以下是全部代码"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">以下是全部代码</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-vue-cli3学习之-axios封装"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">vue-cli3学习之-axios封装</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-13 15:23:25" datetime="2019-05-13T07:23:25.000Z"  itemprop="datePublished">2019-05-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/vue-cli3，axios，封装/">vue-cli3，axios，封装</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="vue-cli3学习之-axios封装"><a href="#vue-cli3学习之-axios封装" class="headerlink" title="vue-cli3学习之-axios封装"></a>vue-cli3学习之-axios封装</h2><h4 id="1，准备地址-baseUrl"><a href="#1，准备地址-baseUrl" class="headerlink" title="1，准备地址 baseUrl"></a>1，准备地址 baseUrl</h4><p>根据生产与开发环境来改变不同的地址,新建env.js。<br>此处的 ‘/api’ 是在vue.config.js里配置的地址<br>（参考<a href="/2017/09/12/gulp搭建/">vue-cli3学习之-vue.config.js配置</a>）</p>
+<pre>
+<code>
+let baseUrl = '';
+if (process.env.NODE_ENV == 'development') {
+    baseUrl = '/api';
+} else if (process.env.NODE_ENV == 'production') {
+    //baseUrl = '测试地址';
+    //baseUrl = '预发布地址';
+    baseUrl = '生产地址';
+}
+export {
+    baseUrl,
+}
+</code>
+</pre>
+
+
+<h4 id="2，axios请求封装"><a href="#2，axios请求封装" class="headerlink" title="2，axios请求封装"></a>2，axios请求封装</h4><p>封装的前提，你至少得把axios引入吧！在此不多说了<br>在你的项目中应该有一个plugins文件，里面应该有一个axios.js文件，有的话就打开他，没有的话，那就新建一个吧！</p>
+<h6 id="2-1，这是你需要引入的东西"><a href="#2-1，这是你需要引入的东西" class="headerlink" title="2-1，这是你需要引入的东西"></a>2-1，这是你需要引入的东西</h6><pre>
+<code>
+import {
+  baseUrl, //引入baseUrl 
+} from "../plugins/env";
+import axios from 'axios';
+import qs from 'qs'
+import { Loading, Message } from 'element-ui'
+import router from '../router'
+</code>
+</pre>
+
+<h6 id="2-2，基本的配置与取值，当然，你也可以把值存在store里，你开心就好"><a href="#2-2，基本的配置与取值，当然，你也可以把值存在store里，你开心就好" class="headerlink" title="2-2，基本的配置与取值，当然，你也可以把值存在store里，你开心就好"></a>2-2，基本的配置与取值，当然，你也可以把值存在store里，你开心就好</h6><pre>
+<code>
+axios.defaults.timeout = 10000; //设置请求时间
+axios.defaults.baseURL = baseUrl;//设置默认接口地址
+axios.defaults.headers = { 'Content-Type': 'application/json; charset=utf-8' };
+let loadinginstace = '';
+let token = localStorage.getItem('token'); //从localstorage取值
+</code>
+</pre>
+
+<h6 id="2-3，http请求拦截器"><a href="#2-3，http请求拦截器" class="headerlink" title="2-3，http请求拦截器"></a>2-3，http请求拦截器</h6><pre>
+<code>
+axios.interceptors.request.use(
+  config => {
+    loadinginstace = Loading.service({
+      lock: true,
+      text: 'Loading',
+      spinner: 'el-icon-loading',
+      background: 'rgba(0, 0, 0, 0.3)',
+      customClass: "osloading",
+      fullscreen: true
+    })
+    if (token) {
+      config.headers['X-Token'] = getToken()
+    }
+    if (config.method === 'post' || config.method === 'put' || config.method === 'delete') {
+      config.data = qs.stringify(config.data)
+    }
+    return config
+  },
+  error => {
+    loadinginstace.close();
+    return Promise.reject(error)
+  }
+)
+</code>
+</pre>
+
+<h6 id="2-4，http-response-服务器响应拦截器"><a href="#2-4，http-response-服务器响应拦截器" class="headerlink" title="2-4，http response 服务器响应拦截器"></a>2-4，http response 服务器响应拦截器</h6><pre>
+<code>
+axios.interceptors.response.use(res => {
+  loadinginstace.close()
+  if (res.data === '' || res.data.length === 0 || res.data === 'undefined' || res.data === undefined) {
+    Message({
+      type: 'error',
+      message: '数据可能走丢了！'
+    })
+  }
+  return res.data
+},
+  error => {
+    loadinginstace.close()
+    if (error.code === 'ECONNABORTED' && error.message.indexOf('timeout') !== -1) {
+      Message({
+        type: 'error',
+        message: '请求超时！'
+      })
+    }
+    const errorInfo = error.response
+    if (errorInfo) {
+      if (errorInfo.status === 401) {
+        router.push({
+          path: '/login'
+        })
+      }
+    }
+    return Promise.reject(error)
+  }
+);
+</code>
+</pre>
+
+<h6 id="2-5，get-post请求简单封装"><a href="#2-5，get-post请求简单封装" class="headerlink" title="2-5，get,post请求简单封装"></a>2-5，get,post请求简单封装</h6><pre>
+<code>
+export function fetch(url, params = {}) {
+  return new Promise((resolve, reject) => {
+    axios.get(url, {
+      params: params
+    })
+      .then(response => {
+        resolve(response.data);
+      })
+      .catch(err => {
+        reject(err)
+      })
+  })
+}
+</code>
+</pre>
+
+<pre>
+<code>
+export function post(url, data = {}) {
+  return new Promise((resolve, reject) => {
+    axios.post(url, data)
+      .then(response => {
+        resolve(response.data);
+      }, err => {
+        reject(err)
+      })
+  })
+}
+</code>
+</pre>
+
+<h6 id="2-5，在main-js中引入，就可以用了"><a href="#2-5，在main-js中引入，就可以用了" class="headerlink" title="2-5，在main.js中引入，就可以用了"></a>2-5，在main.js中引入，就可以用了</h6><pre>
+<code>
+import { post, fetch }  from "./plugins/axios";
+Vue.prototype.$get=fetch;
+Vue.prototype.$post=post;
+</code>
+</pre>
+使用例子
+<pre>
+<code>
+this.$post("/login",{"password": "admin","username": "admin"}).then((res)=>{
+  console.log(res)
+})
+</code>
+</pre>
+
+<h3 id="以下是全部代码"><a href="#以下是全部代码" class="headerlink" title="以下是全部代码"></a>以下是全部代码</h3><pre>
+<code>
+import {
+  baseUrl, //引入baseUrl 
+} from "../plugins/env";
+import axios from 'axios';
+import qs from 'qs'
+import { Loading, Message } from 'element-ui'
+import router from '../router'
+axios.defaults.timeout = 10000; //设置请求时间
+axios.defaults.baseURL = baseUrl;//设置默认接口地址
+axios.defaults.headers = { 'Content-Type': 'application/json; charset=utf-8' };
+let loadinginstace = '';
+let token = localStorage.getItem('token'); //从localstorage取值
+
+// http请求拦截器
+axios.interceptors.request.use(
+  config => {
+    // element ui Loading方法
+    loadinginstace = Loading.service({
+      lock: true,
+      text: 'Loading',
+      spinner: 'el-icon-loading',
+      background: 'rgba(0, 0, 0, 0.3)',
+      customClass: "osloading",
+      fullscreen: true
+    })
+    if (token) {
+      config.headers['X-Token'] = getToken() // 让每个请求携带token--['X-Token']为自定义key 请根据实际情况自行修改
+    }
+    // 判断为post请求，序列化传来的参数
+    if (config.method === 'post' || config.method === 'put' || config.method === 'delete') {
+      config.data = qs.stringify(config.data)
+    }
+    return config
+  },
+  error => {
+    loadinginstace.close();
+    return Promise.reject(error)
+  }
+)
+
+// http response 服务器响应拦截器，
+axios.interceptors.response.use(res => {
+  // 请求成功时要做的处理
+
+  // 对响应数据做些事，把loading动画关掉
+  loadinginstace.close()
+  // 对请求成功的值进行统一判断
+  //   1.判空
+  if (res.data === '' || res.data.length === 0 || res.data === 'undefined' || res.data === undefined) {
+    Message({
+      type: 'error',
+      message: '数据可能走丢了！'
+    })
+  }
+  //   2.错误提示(前提是接口跑通了，只是对里边某些值做下详细判断。要先跟后台商定好，对某个固定的字段进行判断，并且确定固定字段来承接 错误信息，方便展示)
+  // if (res.data && !res.data.success) {
+  //  console.log(res.data.error.message)
+  // }
+  return res.data
+},
+  error => {
+    loadinginstace.close()
+    //  1.判断请求超时
+    if (error.code === 'ECONNABORTED' && error.message.indexOf('timeout') !== -1) {
+      Message({
+        type: 'error',
+        message: '请求超时！'
+      })
+      // return service.request(originalRequest);//例如再重复请求一次
+    }
+    //  2.需要重定向到错误页面
+    const errorInfo = error.response
+    if (errorInfo) {
+      // error =errorInfo.data//页面那边catch的时候就能拿到详细的错误信息,看最下边的Promise.reject
+      if (errorInfo.status === 401) {
+        router.push({
+          path: '/login'
+        })
+      }
+      // if (errorInfo.status === 500) {
+      //   router.push({
+      //     path: "/error/500"
+      //   });
+      // }
+      // if (errorInfo.status === 502) {
+      //   router.push({
+      //     path: "/error/502"
+      //   });
+      // }
+      // if (errorInfo.status === 404) {
+      //   router.push({
+      //     path: "/error/404"
+      //   });
+      // }
+    }
+    return Promise.reject(error)
+  }
+);
+
+
+/**
+ * 封装get方法
+ * @param url
+ * @param data
+ * @returns {Promise}
+*/
+export function fetch(url, params = {}) {
+  return new Promise((resolve, reject) => {
+    axios.get(url, {
+      params: params
+    })
+      .then(response => {
+        resolve(response.data);
+      })
+      .catch(err => {
+        reject(err)
+      })
+  })
+}
+/**
+ * 封装post请求
+ * @param url
+ * @param data
+ * @returns {Promise}
+ */
+
+export function post(url, data = {}) {
+  return new Promise((resolve, reject) => {
+    axios.post(url, data)
+      .then(response => {
+        resolve(response.data);
+      }, err => {
+        reject(err)
+      })
+  })
+}
+
+</code>
+</pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-05-13T08:30:35.360Z" itemprop="dateUpdated">2019-05-13 16:30:35</time>
+</span><br>
+
+
+        
+        希望能帮到您
+        
+    </div>
+    <footer>
+        <a href="https://luyuzeee.github.io">
+            <img src="/img/headMY.jpg" alt="Danile">
+            Danile
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-cli3，axios，封装/">vue-cli3，axios，封装</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://luyuzeee.github.io/2019/05/13/vue-cli3学习之-axios封装/&title=《vue-cli3学习之-axios封装》 — 陆刚的博客&pic=https://luyuzeee.github.io/img/headMY.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://luyuzeee.github.io/2019/05/13/vue-cli3学习之-axios封装/&title=《vue-cli3学习之-axios封装》 — 陆刚的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://luyuzeee.github.io/2019/05/13/vue-cli3学习之-axios封装/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue-cli3学习之-axios封装》 — 陆刚的博客&url=https://luyuzeee.github.io/2019/05/13/vue-cli3学习之-axios封装/&via=https://luyuzeee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://luyuzeee.github.io/2019/05/13/vue-cli3学习之-axios封装/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/12/vue-cli3学习之-vue.config.js配置/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vue-cli3学习之-vue.config.js配置</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        如果您是土豪，我将万分感谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wx.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wx.png" data-alipay="/img/ali.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Danile &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://luyuzeee.github.io/2019/05/13/vue-cli3学习之-axios封装/&title=《vue-cli3学习之-axios封装》 — 陆刚的博客&pic=https://luyuzeee.github.io/img/headMY.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://luyuzeee.github.io/2019/05/13/vue-cli3学习之-axios封装/&title=《vue-cli3学习之-axios封装》 — 陆刚的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://luyuzeee.github.io/2019/05/13/vue-cli3学习之-axios封装/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue-cli3学习之-axios封装》 — 陆刚的博客&url=https://luyuzeee.github.io/2019/05/13/vue-cli3学习之-axios封装/&via=https://luyuzeee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://luyuzeee.github.io/2019/05/13/vue-cli3学习之-axios封装/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuElEQVR42u3aS44iMRAFwL7/pWe2I40KXv66aSlYIQqqHF44zXN+fcWvP/+9nq4mv83v9u/Vp/svvPDw8PDGQ3+6dT7Q179Nnv56+vLJwsPDw7vjPa2oyXB7UzMpPMmY8fDw8D6ZVx3o6/fJpODh4eH9Rl6CqUYbT3dOpgMPDw/v+3nVhTi/Wl3o86KynLXg4eHhxbx8Kf+c9yfne3h4eHjjU/XewVXeRjC5Gj0dDw8P74CXL7g99iSQjYKGZILw8PDwDnj5X/08jMgjjMk0FSYCDw8Pb4lXDUDnG+I8qM1jkUI+jYeHhzfmJYOrHlNNpi8pCckBGx4eHt4drxoN5Bvf/G69fwDRU/Dw8PAOeL24dvKdHHbSeoWHh4e3xEuOpiaHWFsNVeVkGg8PD++A11u+k8/zJT4Pc/NmLDw8PLw7Xr6KJjFuDp4s+sl0lIsEHh4eXotXbQWoNgTkuUi+rR8Fu3h4eHgtXm9bvBVbFA6u5ttoPDw8vANeL4aobqzXqlbS+oCHh4d3wJsEDbvb6+q2vtpwgIeHh7fFywdU2MgG0Wp+lJVM0OPneHh4eMe8pAAkxaO3xM9jize1Dg8PD++Al4cR5UP6IrIa1z6OEw8PD++Al99o0j6VH5jlm+xyCcHDw8M7421FA5Ntd684vSkheHh4eKu8PGCtFolqy9Q8wI3mDA8PD2+JV11we+1W1Sghj5WjGAIPDw9vlZcXhuR0qVce5jHxQt3Dw8PDaz0gLwm9aLUXXpQ33Hh4eHgHvPkamwwuYW+9Xy4heHh4eK2dZ7UhoFpI8rihufnGw8PDO+PlIUV16Z9EFb1vPrYO4OHh4f0QLwkUeu0C+QFYYXuNh4eH9wG8rVaD/GitGiLj4eHhfQ+vN7jJgKrhbzW8wMPDw7vjTaKBSbvA5LB/4UwPDw8Pr8P7C2uzSt9JcczSAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '陆刚的学习博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'Danile Blogs!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
