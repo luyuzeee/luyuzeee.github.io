@@ -26,16 +26,16 @@
 <meta property="og:title" content="记一次H5活动的微信授权与分享的坑">
 <meta property="og:url" content="https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/index.html">
 <meta property="og:site_name" content="陆刚的博客">
-<meta property="og:description" content="H5活动的微信授权与分享背景某一天接到个H5的活动页面需求，需求是如下：    总共三个页面（不重要）   第一个页面点击跳转第二个页面获取授权，拿取微信信息 在第二个页面能长按保存整个图片 自定义分享内容，（三个页面都能分享，是同样的分享内容）开始1，你需要准备的东西 微信公众平台——服务号 jquery html2canvas.js点击下载 jweixin-1.4.0.js sha1.js点击">
+<meta property="og:description" content="H5活动的微信授权与分享背景某一天接到个H5的活动页面需求，需求是如下：    总共三个页面（不重要）   第一个页面点击跳转第二个页面获取授权，拿取微信信息 在第二个页面能长按保存整个图片 自定义分享内容，（三个页面都能分享，是同样的分享内容）开始1，你需要准备的东西 微信公众平台——服务号 jquery html2canvas.js jweixin-1.4.0.js sha1.js2，准备页面">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/gzhpz.png">
 <meta property="og:image" content="https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/shouquan.png">
 <meta property="og:image" content="https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/canshu.png">
 <meta property="og:image" content="https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/fenxiang.png">
-<meta property="og:updated_time" content="2019-12-24T13:24:47.770Z">
+<meta property="og:updated_time" content="2019-12-24T13:31:03.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次H5活动的微信授权与分享的坑">
-<meta name="twitter:description" content="H5活动的微信授权与分享背景某一天接到个H5的活动页面需求，需求是如下：    总共三个页面（不重要）   第一个页面点击跳转第二个页面获取授权，拿取微信信息 在第二个页面能长按保存整个图片 自定义分享内容，（三个页面都能分享，是同样的分享内容）开始1，你需要准备的东西 微信公众平台——服务号 jquery html2canvas.js点击下载 jweixin-1.4.0.js sha1.js点击">
+<meta name="twitter:description" content="H5活动的微信授权与分享背景某一天接到个H5的活动页面需求，需求是如下：    总共三个页面（不重要）   第一个页面点击跳转第二个页面获取授权，拿取微信信息 在第二个页面能长按保存整个图片 自定义分享内容，（三个页面都能分享，是同样的分享内容）开始1，你需要准备的东西 微信公众平台——服务号 jquery html2canvas.js jweixin-1.4.0.js sha1.js2，准备页面">
 <meta name="twitter:image" content="https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/gzhpz.png">
     
         <link rel="alternate" type="application/atom+xml" title="陆刚的博客" href="/atom.xml">
@@ -204,9 +204,9 @@
 <li>自定义分享内容，（三个页面都能分享，是同样的分享内容）<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="1，你需要准备的东西"><a href="#1，你需要准备的东西" class="headerlink" title="1，你需要准备的东西"></a>1，你需要准备的东西</h2></li>
 <li><a href="https://mp.weixin.qq.com/?token=&amp;lang=zh_CN" target="_blank" rel="noopener">微信公众平台——服务号</a></li>
 <li><a href="https://jquery.com/" target="_blank" rel="noopener">jquery</a></li>
-<li><a href="http://html2canvas.hertzen.com/" target="_blank" rel="noopener">html2canvas.js</a><a href="/download/html2canvas.js">点击下载</a></li>
+<li><a href="http://html2canvas.hertzen.com/" target="_blank" rel="noopener">html2canvas.js</a></li>
 <li><a href="http://res.wx.qq.com/open/js/jweixin-1.4.0.js" target="_blank" rel="noopener">jweixin-1.4.0.js</a></li>
-<li><a href="/download/sha1.js">sha1.js点击下载</a><h2 id="2，准备页面"><a href="#2，准备页面" class="headerlink" title="2，准备页面"></a>2，准备页面</h2><h2 id="3，公众平台配置网页授权域名"><a href="#3，公众平台配置网页授权域名" class="headerlink" title="3，公众平台配置网页授权域名"></a>3，公众平台配置网页授权域名</h2>在微信公众号请求用户网页授权之前，开发者需要先到公众平台官网中的“开发 - 接口权限 - 网页服务 - 网页帐号 - 网页授权获取用户基本信息”的配置选项中，修改授权回调域名。请注意，这里填写的是域名（是一个字符串），而不是URL，因此请勿加 http:// 等协议头；<br>前端的东西必须通过这个域名能访问到。<figure class="image-bubble">
+<li>sha1.js<h2 id="2，准备页面"><a href="#2，准备页面" class="headerlink" title="2，准备页面"></a>2，准备页面</h2><h2 id="3，公众平台配置网页授权域名"><a href="#3，公众平台配置网页授权域名" class="headerlink" title="3，公众平台配置网页授权域名"></a>3，公众平台配置网页授权域名</h2>在微信公众号请求用户网页授权之前，开发者需要先到公众平台官网中的“开发 - 接口权限 - 网页服务 - 网页帐号 - 网页授权获取用户基本信息”的配置选项中，修改授权回调域名。请注意，这里填写的是域名（是一个字符串），而不是URL，因此请勿加 http:// 等协议头；<br>前端的东西必须通过这个域名能访问到。<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2019/12/24/记一次H5活动的微信授权与分享的坑/gzhpz.png" alt="参数定义" title="">
@@ -271,7 +271,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-12-24T13:24:47.770Z" itemprop="dateUpdated">2019-12-24 21:24:47</time>
+    最后更新时间：<time datetime="2019-12-24T13:31:03.301Z" itemprop="dateUpdated">2019-12-24 21:31:03</time>
 </span><br>
 
 
