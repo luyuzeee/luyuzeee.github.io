@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>记一次H5活动的微信授权与分享的坑 | 陆刚的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="H5，微信授权，分享，html2canvas保存图片">
+    <meta name="description" content="H5活动的微信授权与分享背景某一天接到个H5的活动页面需求，需求是如下：    总共三个页面（不重要）   第一个页面点击跳转第二个页面获取授权，拿取微信信息 在第二个页面能长按保存整个图片 自定义分享内容，（三个页面都能分享，是同样的分享内容）开始1，你需要准备的东西 微信公众平台——服务号 jquery html2">
+<meta name="keywords" content="H5，微信授权，分享，html2canvas保存图片">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次H5活动的微信授权与分享的坑">
+<meta property="og:url" content="https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/index.html">
+<meta property="og:site_name" content="陆刚的博客">
+<meta property="og:description" content="H5活动的微信授权与分享背景某一天接到个H5的活动页面需求，需求是如下：    总共三个页面（不重要）   第一个页面点击跳转第二个页面获取授权，拿取微信信息 在第二个页面能长按保存整个图片 自定义分享内容，（三个页面都能分享，是同样的分享内容）开始1，你需要准备的东西 微信公众平台——服务号 jquery html2canvas.js点击下载 jweixin-1.4.0.js sha1.js点击">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/gzhpz.png">
+<meta property="og:image" content="https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/shouquan.png">
+<meta property="og:image" content="https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/canshu.png">
+<meta property="og:image" content="https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/fenxiang.png">
+<meta property="og:updated_time" content="2019-12-24T13:24:47.770Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记一次H5活动的微信授权与分享的坑">
+<meta name="twitter:description" content="H5活动的微信授权与分享背景某一天接到个H5的活动页面需求，需求是如下：    总共三个页面（不重要）   第一个页面点击跳转第二个页面获取授权，拿取微信信息 在第二个页面能长按保存整个图片 自定义分享内容，（三个页面都能分享，是同样的分享内容）开始1，你需要准备的东西 微信公众平台——服务号 jquery html2canvas.js点击下载 jweixin-1.4.0.js sha1.js点击">
+<meta name="twitter:image" content="https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/gzhpz.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="陆刚的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/headMY.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Danile</h5>
+          <a href="mailto:604616579@qq.com" title="604616579@qq.com" class="mail">604616579@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/luyuzeee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/ludashao22" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">记一次H5活动的微信授权与分享的坑</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">记一次H5活动的微信授权与分享的坑</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-12-24T08:30:45.000Z" itemprop="datePublished" class="page-time">
+  2019-12-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/微信授权，分享，html2canvas保存图片/">微信授权，分享，html2canvas保存图片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#H5活动的微信授权与分享"><span class="post-toc-number">1.</span> <span class="post-toc-text">H5活动的微信授权与分享</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景"><span class="post-toc-number">2.</span> <span class="post-toc-text">背景</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#开始"><span class="post-toc-number"></span> <span class="post-toc-text">开始</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1，你需要准备的东西"><span class="post-toc-number">1.</span> <span class="post-toc-text">1，你需要准备的东西</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2，准备页面"><span class="post-toc-number">2.</span> <span class="post-toc-text">2，准备页面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3，公众平台配置网页授权域名"><span class="post-toc-number">3.</span> <span class="post-toc-text">3，公众平台配置网页授权域名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4，微信授权"><span class="post-toc-number">4.</span> <span class="post-toc-text">4，微信授权</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6，接下来是微信分享自定义"><span class="post-toc-number">5.</span> <span class="post-toc-text">6，接下来是微信分享自定义</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1，绑定域名"><span class="post-toc-number">5.0.1.</span> <span class="post-toc-text">1，绑定域名</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2，引入js"><span class="post-toc-number">5.0.2.</span> <span class="post-toc-text">2，引入js</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3，基础access-token获取"><span class="post-toc-number">5.0.3.</span> <span class="post-toc-text">3，基础access_token获取</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4，获得jsapi-ticket"><span class="post-toc-number">5.0.4.</span> <span class="post-toc-text">4，获得jsapi_ticket</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5，JS-SDK权限验证签名"><span class="post-toc-number">5.0.5.</span> <span class="post-toc-text">5，JS-SDK权限验证签名</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1，随机字符串"><span class="post-toc-number">5.0.5.1.</span> <span class="post-toc-text">1，随机字符串</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2，获取的jsapi-ticket"><span class="post-toc-number">5.0.5.2.</span> <span class="post-toc-text">2，获取的jsapi_ticket</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3，时间戳"><span class="post-toc-number">5.0.5.3.</span> <span class="post-toc-text">3，时间戳</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4，当前网页的URL"><span class="post-toc-number">5.0.5.4.</span> <span class="post-toc-text">4，当前网页的URL</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5，签名参数按照字段名的ASCII-码从小到大排序"><span class="post-toc-number">5.0.5.5.</span> <span class="post-toc-text">5，签名参数按照字段名的ASCII 码从小到大排序</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#6，排序后拼接成如下字符串"><span class="post-toc-number">5.0.5.6.</span> <span class="post-toc-text">6，排序后拼接成如下字符串</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#7，调用sha1-js，进行签名，后获得签名字符串"><span class="post-toc-number">5.0.5.7.</span> <span class="post-toc-text">7，调用sha1.js，进行签名，后获得签名字符串</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6，注入wx-config配置参数"><span class="post-toc-number">5.0.6.</span> <span class="post-toc-text">6，注入wx.config配置参数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-通过ready接口处理成功验证-在此调用接口-，error接口处理错误"><span class="post-toc-number">5.0.7.</span> <span class="post-toc-text">7, 通过ready接口处理成功验证(在此调用接口)，error接口处理错误</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7，长按保存图片（html2canvas）"><span class="post-toc-number">6.</span> <span class="post-toc-text">7，长按保存图片（html2canvas）</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-记一次H5活动的微信授权与分享的坑"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">记一次H5活动的微信授权与分享的坑</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-12-24 16:30:45" datetime="2019-12-24T08:30:45.000Z"  itemprop="datePublished">2019-12-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/微信授权，分享，html2canvas保存图片/">微信授权，分享，html2canvas保存图片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="H5活动的微信授权与分享"><a href="#H5活动的微信授权与分享" class="headerlink" title="H5活动的微信授权与分享"></a>H5活动的微信授权与分享</h2><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>某一天接到个H5的活动页面需求，需求是如下：  </p>
+<ul>
+<li>总共三个页面（不重要）  </li>
+<li>第一个页面点击跳转第二个页面获取授权，拿取微信信息</li>
+<li>在第二个页面能长按保存整个图片</li>
+<li>自定义分享内容，（三个页面都能分享，是同样的分享内容）<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="1，你需要准备的东西"><a href="#1，你需要准备的东西" class="headerlink" title="1，你需要准备的东西"></a>1，你需要准备的东西</h2></li>
+<li><a href="https://mp.weixin.qq.com/?token=&amp;lang=zh_CN" target="_blank" rel="noopener">微信公众平台——服务号</a></li>
+<li><a href="https://jquery.com/" target="_blank" rel="noopener">jquery</a></li>
+<li><a href="http://html2canvas.hertzen.com/" target="_blank" rel="noopener">html2canvas.js</a><a href="/download/html2canvas.js">点击下载</a></li>
+<li><a href="http://res.wx.qq.com/open/js/jweixin-1.4.0.js" target="_blank" rel="noopener">jweixin-1.4.0.js</a></li>
+<li><a href="/download/sha1.js">sha1.js点击下载</a><h2 id="2，准备页面"><a href="#2，准备页面" class="headerlink" title="2，准备页面"></a>2，准备页面</h2><h2 id="3，公众平台配置网页授权域名"><a href="#3，公众平台配置网页授权域名" class="headerlink" title="3，公众平台配置网页授权域名"></a>3，公众平台配置网页授权域名</h2>在微信公众号请求用户网页授权之前，开发者需要先到公众平台官网中的“开发 - 接口权限 - 网页服务 - 网页帐号 - 网页授权获取用户基本信息”的配置选项中，修改授权回调域名。请注意，这里填写的是域名（是一个字符串），而不是URL，因此请勿加 http:// 等协议头；<br>前端的东西必须通过这个域名能访问到。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/12/24/记一次H5活动的微信授权与分享的坑/gzhpz.png" alt="参数定义" title="">
+                </div>
+                <div class="image-caption">参数定义</div>
+            </figure>   
+<h2 id="4，微信授权"><a href="#4，微信授权" class="headerlink" title="4，微信授权"></a>4，微信授权</h2>微信授权分为两种形式，snsapi_base，snsapi_userinfo，区别在于前者是静默状态，只能获取进入页面的用户的openid的，后者是会出现以下页面的，获取用户的基本信息，需要用户手动同意授权，如下：<br><img src="/2019/12/24/记一次H5活动的微信授权与分享的坑/shouquan.png" alt="微信授权"><br>要到达上面的页面，需要开发者调用<pre><code>https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect
+//若提示“该链接无法访问”，请检查参数是否填写错误，是否拥有scope参数对应的授权作用域权限。</code></pre>  
+上面链接的意思就是，跳转到授权页面，获取code(注意不要改变参数顺序)每个参数的定义如下：
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/12/24/记一次H5活动的微信授权与分享的坑/canshu.png" alt="参数定义" title="">
+                </div>
+                <div class="image-caption">参数定义</div>
+            </figure>   
+以上其实主要修改的参数就是appid和redirect_uri，一个是你的公众号的唯一id,一个是你授权成功后的重定向路径（授权成功后要跳转的页面）。
+## 5，通过code获取access_token与openId，并且获取到信息
+获取token的接口
+<pre><code>https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code</code></pre>
+
+</li>
+</ul>
+<p>这儿你可能需要这个函数，获取url参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function getUrlParam(name) &#123;</span><br><span class="line">  var reg = new RegExp(&quot;(^|&amp;)&quot; + name + &quot;=([^&amp;]*)(&amp;|$)&quot;);</span><br><span class="line">  var r = window.location.search.substr(1).match(reg);</span><br><span class="line">  if (r != null) return unescape(r[2]); return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>这儿H5前端请求会存在跨域问题，微信也不支持jsonp,这儿需要解决跨域的问题，才能请求到数据，我在这儿是把code参数传给后端让后端去拿数据，并且通过access_token与openId去拿取用户信息，后面的跨域接口，都是通过后端去转发的</strong><br><strong>请根据你的业务需求，与后端配合解决</strong> </p>
+<p>获取信息得接口：</p>
+<pre><code>https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN</code></pre>
+
+<p>以上就拿到信息了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;   </span><br><span class="line">  &quot;openid&quot;:&quot; OPENID&quot;,</span><br><span class="line">  &quot;nickname&quot;: NICKNAME,</span><br><span class="line">  &quot;sex&quot;:&quot;1&quot;,</span><br><span class="line">  &quot;province&quot;:&quot;PROVINCE&quot;,</span><br><span class="line">  &quot;city&quot;:&quot;CITY&quot;,</span><br><span class="line">  &quot;country&quot;:&quot;COUNTRY&quot;,  </span><br><span class="line">  &quot;headimgurl&quot;:&quot;http://thirdwx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/46&quot;,</span><br><span class="line">  &quot;privilege&quot;:[ &quot;PRIVILEGE1&quot; &quot;PRIVILEGE2&quot;     ],</span><br><span class="line">  &quot;unionid&quot;: &quot;o6_bmasdasdsad6_2sgVt7hMZOPfL&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>了解更多请参考<a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html" target="_blank" rel="noopener">微信网页授权</a>文档</p>
+<h2 id="6，接下来是微信分享自定义"><a href="#6，接下来是微信分享自定义" class="headerlink" title="6，接下来是微信分享自定义"></a>6，接下来是微信分享自定义</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/12/24/记一次H5活动的微信授权与分享的坑/fenxiang.png" alt="微信分享" title="">
+                </div>
+                <div class="image-caption">微信分享</div>
+            </figure>  
+<p>我们一般是想想要下面的这种结果，微信官方的文档就很清晰了<br><a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html" target="_blank" rel="noopener">微信JS_SDK</a>  </p>
+<h4 id="1，绑定域名"><a href="#1，绑定域名" class="headerlink" title="1，绑定域名"></a>1，绑定域名</h4><p>同授权的域名方式，进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。</p>
+<h4 id="2，引入js"><a href="#2，引入js" class="headerlink" title="2，引入js"></a>2，引入js</h4><p>1.0.0的版本存在二次分享无效的问题，1.2.0以上就没出现过了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://res.wx.qq.com/open/js/jweixin-1.4.0.js</span><br></pre></td></tr></table></figure></p>
+<h4 id="3，基础access-token获取"><a href="#3，基础access-token获取" class="headerlink" title="3，基础access_token获取"></a>3，基础access_token获取</h4><p><strong>这儿的token和网页授权的token是不一样的</strong>,通过下面的接口获取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Get_access_token.html</span><br></pre></td></tr></table></figure></p>
+<h4 id="4，获得jsapi-ticket"><a href="#4，获得jsapi-ticket" class="headerlink" title="4，获得jsapi_ticket"></a>4，获得jsapi_ticket</h4><p>拿到access_token后，请求下面的接口，获得ticket，获得jsapi_ticket之后，就可以生成JS-SDK权限验证的签名了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&amp;type=jsapi</span><br></pre></td></tr></table></figure></p>
+<h4 id="5，JS-SDK权限验证签名"><a href="#5，JS-SDK权限验证签名" class="headerlink" title="5，JS-SDK权限验证签名"></a>5，JS-SDK权限验证签名</h4><p>官网说明要以下四个参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">noncestr=&apos;&apos;  //随机字符串</span><br><span class="line">jsapi_ticket=&apos;&apos;  //获取的jsapi_ticket</span><br><span class="line">timestamp=&apos;&apos; //当前时间戳（以秒换算）</span><br><span class="line">url=&apos;&apos; //需要调用的当前url（只需要‘#’前面的部分）</span><br></pre></td></tr></table></figure></p>
+<h5 id="1，随机字符串"><a href="#1，随机字符串" class="headerlink" title="1，随机字符串"></a>1，随机字符串</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.random().toString(36).slice(-8)</span><br></pre></td></tr></table></figure>
+<h5 id="2，获取的jsapi-ticket"><a href="#2，获取的jsapi-ticket" class="headerlink" title="2，获取的jsapi_ticket"></a>2，获取的jsapi_ticket</h5><h5 id="3，时间戳"><a href="#3，时间戳" class="headerlink" title="3，时间戳"></a>3，时间戳</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Date.parse(new Date()) / 1000</span><br></pre></td></tr></table></figure>
+<h5 id="4，当前网页的URL"><a href="#4，当前网页的URL" class="headerlink" title="4，当前网页的URL"></a>4，当前网页的URL</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.location.href.split(&apos;#&apos;)[0]</span><br></pre></td></tr></table></figure>
+<h5 id="5，签名参数按照字段名的ASCII-码从小到大排序"><a href="#5，签名参数按照字段名的ASCII-码从小到大排序" class="headerlink" title="5，签名参数按照字段名的ASCII 码从小到大排序"></a>5，签名参数按照字段名的ASCII 码从小到大排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function sort_ASCII(obj) &#123;</span><br><span class="line">  var arr = new Array();</span><br><span class="line">  var num = 0;</span><br><span class="line">  for (var i in obj) &#123;</span><br><span class="line">    arr[num] = i;</span><br><span class="line">    num++;</span><br><span class="line">  &#125;</span><br><span class="line">  var sortArr = arr.sort();</span><br><span class="line">  var sortObj = &#123;&#125;;</span><br><span class="line">  for (var i in sortArr) &#123;</span><br><span class="line">    sortObj[sortArr[i]] = obj[sortArr[i]];</span><br><span class="line">  &#125;</span><br><span class="line">  return sortObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="6，排序后拼接成如下字符串"><a href="#6，排序后拼接成如下字符串" class="headerlink" title="6，排序后拼接成如下字符串"></a>6，排序后拼接成如下字符串</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jsapi_ticket=对应的值&amp;noncestr=对应的值&amp;timestamp=对应的值&amp;url=对应的值</span><br></pre></td></tr></table></figure>
+<h5 id="7，调用sha1-js，进行签名，后获得签名字符串"><a href="#7，调用sha1-js，进行签名，后获得签名字符串" class="headerlink" title="7，调用sha1.js，进行签名，后获得签名字符串"></a>7，调用sha1.js，进行签名，后获得签名字符串</h5><p>这个就要用到文章开始得工具了sha1.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var str = &apos;jsapi_ticket=对应的值&amp;noncestr=对应的值&amp;timestamp=对应的值&amp;url=对应的值&apos;;</span><br><span class="line">sha1(str);</span><br></pre></td></tr></table></figure></p>
+<h4 id="6，注入wx-config配置参数"><a href="#6，注入wx-config配置参数" class="headerlink" title="6，注入wx.config配置参数"></a>6，注入wx.config配置参数</h4><p>timestamp,nonceStr,signature,即上一步所生成的字符串，但是得与上面得保持一致，appId就是前面授权时得唯一标识Id<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wx.config(&#123;</span><br><span class="line">  debug: true, // 调试（调试完毕后请关闭或者注释）</span><br><span class="line">  appId: &apos;&apos;, // 必填，公众号的唯一标识</span><br><span class="line">  timestamp: &apos;&apos;, // 必填，生成签名的时间戳</span><br><span class="line">  nonceStr: &apos;&apos;, // 必填，生成签名的随机串</span><br><span class="line">  signature: &apos;&apos;,// 必填，签名</span><br><span class="line">  jsApiList: [&apos;onMenuShareAppMessage&apos;, &apos;onMenuShareTimeline&apos;] // 必填，需要调用的接口列表</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h4 id="7-通过ready接口处理成功验证-在此调用接口-，error接口处理错误"><a href="#7-通过ready接口处理成功验证-在此调用接口-，error接口处理错误" class="headerlink" title="7, 通过ready接口处理成功验证(在此调用接口)，error接口处理错误"></a>7, 通过ready接口处理成功验证(在此调用接口)，error接口处理错误</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//需在用户可能点击分享按钮前就先调用</span><br><span class="line">wx.ready(function () &#123;</span><br><span class="line">  wx.onMenuShareAppMessage(&#123;</span><br><span class="line">    title: &apos;&apos;, // 分享标题</span><br><span class="line">    desc: &apos;&apos;, // 分享描述</span><br><span class="line">    link: &apos;&apos;, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span><br><span class="line">    imgUrl: &apos;&apos;, // 分享图标</span><br><span class="line">    success: function () &#123;&#125;,</span><br><span class="line">    cancel: function () &#123;&#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">wx.error(function () &#123;</span><br><span class="line">  console.log(&quot;错误&quot;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>更多接口，请参考<a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html" target="_blank" rel="noopener">微信文档</a></p>
+<h2 id="7，长按保存图片（html2canvas）"><a href="#7，长按保存图片（html2canvas）" class="headerlink" title="7，长按保存图片（html2canvas）"></a>7，长按保存图片（html2canvas）</h2><p>用这个原因时因为，H5不可能是一张图，它是多张图与标签组合的，往往需要微信用户的名字与头像和活动的结果图一起构成的，但是如果直接调用微信的保存图片，只是保存了选中的图片，所以，我们需要把网页截屏成图片覆盖html，让用户直接保存这张截图。<br>网上很多介绍都很简单，类似与<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">html2canvas(document.querySelector(&quot;#capture&quot;)).then(canvas =&gt; &#123;</span><br><span class="line">  var imgUri = canvas.toDataURL(&quot;image/png&quot;, 1);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>我大概讲一下我所遇到的坑吧！<br>解决图片跨域,画布污染的问题，<strong><font color="#008000">crossorigin=”anonymous”</font></strong> 和 <strong><font color="#008000">useCORS: true</font></strong><br>调用插件，截屏，你需要选择body一下的某个容器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">html2canvas(</span><br><span class="line">  document.getElementById(&quot;content&quot;),</span><br><span class="line">  &#123;</span><br><span class="line">    useCORS: true,</span><br><span class="line">    allowTaint: true</span><br><span class="line">  &#125;</span><br><span class="line">).then(function (canvas) &#123;</span><br><span class="line">  // 获取生成的图片的base64</span><br><span class="line">  var imgUri = canvas.toDataURL(&quot;image/png&quot;, 1);</span><br><span class="line">  //压缩</span><br><span class="line">  suofang(imgUri, &apos;1.5&apos;); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>base64压缩，不多讲了，网上一大堆，直接上函数吧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function suofang(base64, bili) &#123;</span><br><span class="line">  var _img = new Image();</span><br><span class="line">  _img.src = base64;</span><br><span class="line">  _img.onload = function () &#123;</span><br><span class="line">    var _canvas = document.createElement(&quot;canvas&quot;);</span><br><span class="line">    var w = this.width / bili;</span><br><span class="line">    var h = this.height / bili;</span><br><span class="line">    _canvas.setAttribute(&quot;width&quot;, w);</span><br><span class="line">    _canvas.setAttribute(&quot;height&quot;, h);</span><br><span class="line">    _canvas.getContext(&quot;2d&quot;).drawImage(this, 0, 0, w, h);</span><br><span class="line">    var base64 = _canvas.toDataURL(&quot;image/jpeg&quot;);</span><br><span class="line">    _canvas.toBlob(function (blob) &#123;</span><br><span class="line">      if (blob.size &gt; 1024 * 1024) &#123;</span><br><span class="line">        suofang(base64, bili);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        $(&quot;#newImg&quot;).attr(&quot;src&quot;, base64);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, &quot;image/jpeg&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>了解更多canvas画布污染和图片跨域的问题，请参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/CORS_enabled_image" target="_blank" rel="noopener">安全性和“被污染”的 canvas</a> </p>
+<p>到此，就是本次H5活动页的经过。<br>接受所有向上的建议，向各位大佬学习，不接受无理的吐槽喷人。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-12-24T13:24:47.770Z" itemprop="dateUpdated">2019-12-24 21:24:47</time>
+</span><br>
+
+
+        
+        希望能帮到您
+        
+    </div>
+    <footer>
+        <a href="https://luyuzeee.github.io">
+            <img src="/img/headMY.jpg" alt="Danile">
+            Danile
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5，微信授权，分享，html2canvas保存图片/">H5，微信授权，分享，html2canvas保存图片</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/&title=《记一次H5活动的微信授权与分享的坑》 — 陆刚的博客&pic=https://luyuzeee.github.io/img/headMY.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/&title=《记一次H5活动的微信授权与分享的坑》 — 陆刚的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《记一次H5活动的微信授权与分享的坑》 — 陆刚的博客&url=https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/&via=https://luyuzeee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/08/13/分享一个H5移动端适配方案/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">分享一个H5移动端适配方案</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        如果您是土豪，我将万分感谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wx.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wx.png" data-alipay="/img/ali.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Danile &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/&title=《记一次H5活动的微信授权与分享的坑》 — 陆刚的博客&pic=https://luyuzeee.github.io/img/headMY.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/&title=《记一次H5活动的微信授权与分享的坑》 — 陆刚的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《记一次H5活动的微信授权与分享的坑》 — 陆刚的博客&url=https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/&via=https://luyuzeee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://luyuzeee.github.io/2019/12/24/记一次H5活动的微信授权与分享的坑/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADK0lEQVR42u3aUW4iQQwE0Nz/0tkDbIAqe5CY5s0XSqBnXiOlYrt/fuLrt7wefer5+v+/bn978YWNjY19E3YLePSTR2s+evTZJiZ3eb4ONjY29qnsJFSi5YIVkmTZv35hxMbGxv5i9qwMSDbo2m3CxsbGxs7Z+Y3zjZu1mbCxsbG/mb1p6MwwCSC5y9t7adjY2Ngfz24LiU9+/Zb5NjY2NvYHs39HVz52zSMtibE8Sl88PzY2NvZB7HbppEjIy4PZgCGPNGxsbOxvYL/joWdNomvj8EVBhY2NjX0QezOOzQMjWTMfACRFSLsd2NjY2Pdlt8PU/AZtNO43NFkZGxsb+zx2e+SxLT+uGhK0babnG4eNjY19Ejv5178Nudlxn334Jd8wNjY29nns2XnFtkRpRwj5mcn2gCY2Njb2qezNKDdvVL1vqHzBcBcbGxv75uw25TZN+bypNNvodgCMjY2NfXf27KhNfsSnbfQkG3rBYSBsbGzsQ9mbf/HzoWwbS/sY++Oz2NjY2Eez92d/2iBsC57ZcZ8/juxgY2NjH8GexUm7EW1/K59CF6H1aGVsbGzsm7Nn4bE5LpNT25gsRg7Y2NjYB7HrN40et92CqzYueg82Njb2Eez9EZy27tkMgKNRbvL82NjY2Eew86bM7LE2Dze7V/S1YWNjYx/EzgNm047fFx6bYXDRUcPGxsa+Lbsd9G6a+8+3aRaN+cat5tvY2NjYH8zOwyMPs03jvg2kYbxhY2NjH8Fuh7vJzdqRwOwumzYTNjY29nnsWZzMhrV5IG2GwS9c2NjY2Aex2yb+psDIW/9FJ2z0xWBjY2OfxG4jIT92s19zM6KIBgPY2NjYR7D3AXYVNS888icsANjY2Ni3Zf+W16zwmAVM3jCqtwkbGxv7IPbsb37e3M+P1+zHusOCBBsbG/sI9qxUmMVYW8wkq7UNL2xsbOxT2ZuDO7ONaLd4X1r8EWDY2NjYX8Zumz7tZuWFTfLMlwUYNjY29kHsNoryoXK+xe2g+uFnsbGxsY9jJ+VBG2lJSTADz+4+HA9gY2Njfzy7bce0R3xmIbcZBs+CEBsbG/uG7H96Eb+DREqJXgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '陆刚的学习博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'Danile Blogs!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
