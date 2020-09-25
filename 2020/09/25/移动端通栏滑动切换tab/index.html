@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>移动端通栏滑动切换tab | 陆刚的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="H5，tab，滑动，通栏">
+    <meta name="description" content="移动端通栏滑动切换tab直接上代码注：主要展示功能，样式随意更改12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686">
+<meta name="keywords" content="H5，tab，滑动，通栏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端通栏滑动切换tab">
+<meta property="og:url" content="https://luyuzeee.github.io/2020/09/25/移动端通栏滑动切换tab/index.html">
+<meta property="og:site_name" content="陆刚的博客">
+<meta property="og:description" content="移动端通栏滑动切换tab直接上代码注：主要展示功能，样式随意更改123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-09-25T08:48:01.843Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端通栏滑动切换tab">
+<meta name="twitter:description" content="移动端通栏滑动切换tab直接上代码注：主要展示功能，样式随意更改123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888">
+    
+        <link rel="alternate" type="application/atom+xml" title="陆刚的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/headMY.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Danile</h5>
+          <a href="mailto:604616579@qq.com" title="604616579@qq.com" class="mail">604616579@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/luyuzeee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/ludashao22" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">移动端通栏滑动切换tab</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">移动端通栏滑动切换tab</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-09-25T08:42:45.000Z" itemprop="datePublished" class="page-time">
+  2020-09-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/H5，tab，滑动，通栏/">H5，tab，滑动，通栏</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#移动端通栏滑动切换tab"><span class="post-toc-number">1.</span> <span class="post-toc-text">移动端通栏滑动切换tab</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-移动端通栏滑动切换tab"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">移动端通栏滑动切换tab</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-09-25 16:42:45" datetime="2020-09-25T08:42:45.000Z"  itemprop="datePublished">2020-09-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/H5，tab，滑动，通栏/">H5，tab，滑动，通栏</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="移动端通栏滑动切换tab"><a href="#移动端通栏滑动切换tab" class="headerlink" title="移动端通栏滑动切换tab"></a>移动端通栏滑动切换tab</h2><p>直接上代码<br>注：主要展示功能，样式随意更改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br></pre></td><td class="code"><pre><span class="line">  &lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    .tabScroll&#123;</span><br><span class="line">      width: 100%;</span><br><span class="line">      white-space: nowrap;</span><br><span class="line">      overflow: hidden;</span><br><span class="line">    &#125;</span><br><span class="line">    .tabsBox&#123;</span><br><span class="line">      padding: 2px 20px;</span><br><span class="line">      white-space: nowrap;</span><br><span class="line">      overflow: hidden;</span><br><span class="line">      overflow-x: auto;</span><br><span class="line">    &#125;</span><br><span class="line">    .tabsBox span&#123;</span><br><span class="line">      display: inline-block;</span><br><span class="line">      width: 54px;</span><br><span class="line">      height: 25px;</span><br><span class="line">      line-height: 25px;</span><br><span class="line">      text-align: center;</span><br><span class="line">      background: #ff710d;</span><br><span class="line">      border-radius: 12.5px;</span><br><span class="line">      margin-right: 8px;</span><br><span class="line">      font-size: 12px;</span><br><span class="line">      color: #fff;</span><br><span class="line">      opacity: 0.4;</span><br><span class="line">      vertical-align: middle;</span><br><span class="line">    &#125;</span><br><span class="line">    .tabsBox span.active&#123;</span><br><span class="line">      background: #ff7214;</span><br><span class="line">      color: #fff;</span><br><span class="line">      opacity: 1;</span><br><span class="line">    &#125;</span><br><span class="line">    .tabsContent&#123;</span><br><span class="line">      white-space: nowrap;</span><br><span class="line">      overflow: hidden;</span><br><span class="line">      overflow-x: auto;</span><br><span class="line">      display: flex;</span><br><span class="line">      padding-left: 20px;</span><br><span class="line">    &#125;</span><br><span class="line">    ul&#123;</span><br><span class="line">      flex-shrink: 0;</span><br><span class="line">      overflow-x: auto;</span><br><span class="line">      display: flex;</span><br><span class="line">      padding: 12px 0 16px;</span><br><span class="line">      list-style: none;</span><br><span class="line">      display: -webkit-flex;</span><br><span class="line">      display: -webkit-box;</span><br><span class="line">    &#125;</span><br><span class="line">    ul li&#123;</span><br><span class="line">      flex-shrink: 0;</span><br><span class="line">      width: 107px;</span><br><span class="line">      height: 102px;</span><br><span class="line">      background: #fff;</span><br><span class="line">      border: 1px solid #eee;</span><br><span class="line">      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);</span><br><span class="line">      border-radius: 6px;</span><br><span class="line">      margin-right: 8px;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;tabScroll&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;tabsBox&quot;&gt;</span><br><span class="line">        &lt;span v-for=&quot;x in 5&quot; :key=&quot;x&quot; :class=&quot;&#123;active: activeValue === x&#125;&quot; @click=&quot;tabsChange(x)&quot;&gt;</span><br><span class="line">          tab_&#123;&#123;x&#125;&#125;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;tabsContent&quot; ref=&quot;tabsContent&quot;&gt;</span><br><span class="line">        &lt;ul id=&quot;ul1&quot;&gt;</span><br><span class="line">          &lt;li&gt;1-1&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;1-2&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;1-3&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;1-4&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;1-5&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;ul id=&quot;ul2&quot;&gt;</span><br><span class="line">          &lt;li&gt;2-1&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;2-2&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;ul id=&quot;ul3&quot;&gt;</span><br><span class="line">          &lt;li&gt;3-1&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;3-2&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;3-3&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;3-4&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;3-5&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;ul id=&quot;ul4&quot;&gt;</span><br><span class="line">          &lt;li&gt;4-1&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;ul id=&quot;ul5&quot;&gt;</span><br><span class="line">          &lt;li&gt;5-1&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;5-2&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;5-3&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;5-4&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;5-5&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;script src=&quot;https://unpkg.com/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    new Vue(&#123;</span><br><span class="line">      el: &apos;#app&apos;,</span><br><span class="line">      data: function() &#123;</span><br><span class="line">        return &#123; </span><br><span class="line">          activeValue: 1,</span><br><span class="line">          scrollLeftValue: &apos;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      mounted:function() &#123;</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">          this.scrollLeftValue = this.$refs.tabsContent.scrollLeft;</span><br><span class="line">          this.$refs.tabsContent.addEventListener(&quot;scroll&quot;, this.handleScroll, true)</span><br><span class="line">        &#125;, 0)</span><br><span class="line">      &#125;,</span><br><span class="line">      methods: &#123;</span><br><span class="line">        handleScroll() &#123;</span><br><span class="line">          const a = this.$refs.tabsContent.scrollLeft;</span><br><span class="line">          const b = this.$refs.tabsContent.clientWidth;</span><br><span class="line">          const ul1 = document.getElementById(&quot;ul1&quot;).offsetLeft;</span><br><span class="line">          const ul2 = document.getElementById(&quot;ul2&quot;).offsetLeft;</span><br><span class="line">          const ul3 = document.getElementById(&quot;ul3&quot;).offsetLeft;</span><br><span class="line">          const ul4 = document.getElementById(&quot;ul4&quot;).offsetLeft;</span><br><span class="line">          const ul5 = document.getElementById(&quot;ul5&quot;).offsetLeft;</span><br><span class="line">          const arr = [ul1,ul2,ul3,ul4,ul5];</span><br><span class="line">          const arrLen = arr.length;</span><br><span class="line">          for(let i = 0; i &lt; arrLen; i++)&#123;</span><br><span class="line">            if(arr[i] &gt;= a &amp;&amp; arr[i]&lt; a+b)&#123;</span><br><span class="line">              this.activeValue = i+1;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        tabsChange(row) &#123;</span><br><span class="line">          this.activeValue = row;</span><br><span class="line">          document.getElementById(&quot;ul&quot;+this.activeValue).scrollIntoView();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-09-25T08:48:01.843Z" itemprop="dateUpdated">2020-09-25 16:48:01</time>
+</span><br>
+
+
+        
+        希望能帮到您
+        
+    </div>
+    <footer>
+        <a href="https://luyuzeee.github.io">
+            <img src="/img/headMY.jpg" alt="Danile">
+            Danile
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5，tab，滑动，通栏/">H5，tab，滑动，通栏</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://luyuzeee.github.io/2020/09/25/移动端通栏滑动切换tab/&title=《移动端通栏滑动切换tab》 — 陆刚的博客&pic=https://luyuzeee.github.io/img/headMY.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://luyuzeee.github.io/2020/09/25/移动端通栏滑动切换tab/&title=《移动端通栏滑动切换tab》 — 陆刚的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://luyuzeee.github.io/2020/09/25/移动端通栏滑动切换tab/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《移动端通栏滑动切换tab》 — 陆刚的博客&url=https://luyuzeee.github.io/2020/09/25/移动端通栏滑动切换tab/&via=https://luyuzeee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://luyuzeee.github.io/2020/09/25/移动端通栏滑动切换tab/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/18/element中el-image图片放大不是当前点击图片/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">element中el-image图片放大不是当前点击图片</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        如果您是土豪，我将万分感谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wx.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wx.png" data-alipay="/img/ali.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Danile &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://luyuzeee.github.io/2020/09/25/移动端通栏滑动切换tab/&title=《移动端通栏滑动切换tab》 — 陆刚的博客&pic=https://luyuzeee.github.io/img/headMY.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://luyuzeee.github.io/2020/09/25/移动端通栏滑动切换tab/&title=《移动端通栏滑动切换tab》 — 陆刚的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://luyuzeee.github.io/2020/09/25/移动端通栏滑动切换tab/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《移动端通栏滑动切换tab》 — 陆刚的博客&url=https://luyuzeee.github.io/2020/09/25/移动端通栏滑动切换tab/&via=https://luyuzeee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://luyuzeee.github.io/2020/09/25/移动端通栏滑动切换tab/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACwUlEQVR42u3ay47cQAgF0P7/n06k2UykjO0LFIkXx6tWP+w6tSho4POJr19f1/2nf3/n6ld/vn/1Orn/sQsPDw+vtfSr6+oBk3fun3v/zXzNeHh4eNu85Pi+OvofHhCHnASZrxkPDw/vDbx5NnufKPeoeHh4eO/nJWEgP9yT8IOHh4f3Tl5eGkgO7nkJuLrFB2oteHh4eDGvVzL4v68X+3t4eHh4g676pJQwHzLIw8DlavHw8PAWePfFhSQVnrTNkmQ9T5QL/xjw8PDwDvHONqWSo79a2G0+HQ8PD2+N10tqqwEm36zqPaOUGg8PD2+N13t9qoRxaj14eHh4G7y8GJqPCFSHCappdD52gIeHh7fBmySv97+atL4mLbRRrRoPDw8v5vUCQC+xzjcrb5g9bBYeHh7eUV61bd8be8rT4uqGPryDh4eHt8bLk93q0Z8k69WmWqEEjIeHh7fG66WzzUZ+K4lPnvIQ9/Dw8PAWeJNG1zwkzEPRD5/i4eHhrfF6R3y1oZUXI3plix8UeHh4eAu8fBHVNn+O7BUpqi00PDw8vFO8XuGgFzwe9jXZ++o8AB4eHt4Cbz6xVS00VJtevbBUmDvAw8PDK/LKzfj4EM9HASZri0oPeHh4eAu86qLzUmy+NdUyR7SteHh4eAu8vOmVHOV5CSNPnZNiBx4eHt6/5PXGoSZpbn7PPLSUh67w8PDwjvIm/+gnwSDfgvzCw8PD2+D1yhAPo07j8DBJ30c1DDw8PLxiA2xehkh4SSkhCUjRpuDh4eEt8KrzS3loSZZS3aAknHx6Fx4eHl6R11vWqcbV5J6F0QE8PDy8BV6vWZVjquXgA9EMDw8P7wW8XuM/Ob6rTbjCffDw8PBewzvbGOsl39ET8fDw8NZ4Z9PiXgm42paLmmd4eHh4C7z5P/rqBuXhpPfNwwULPDw8vO/rNy+A+T6WsM2TAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '陆刚的学习博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'Danile Blogs!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
